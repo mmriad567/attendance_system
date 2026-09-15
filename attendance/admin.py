@@ -1,10 +1,12 @@
 from django.contrib import admin
+from .forms import TeacherForm,StudentForm
 from .models import Teacher,ClassRoom,Student,Attendance
 
 # Register your models here.
 
 @admin.register(Teacher)
 class TeacherAdmin(admin.ModelAdmin):
+    form=TeacherForm
     list_display=('name','email','phone','joined_at')
     search_fields=('name','email')
 
@@ -18,6 +20,7 @@ class ClassRoomAdmin(admin.ModelAdmin):
 
 @admin.register(Student)
 class StudentAdmin(admin.ModelAdmin):
+    form=StudentForm
     list_display=('roll_number','name','classroom','email')
     list_filter=('classroom',)
     search_fields=('name','roll_number')
