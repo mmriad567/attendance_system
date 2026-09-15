@@ -1,0 +1,10 @@
+{% extends 'attendance/base.html' %}
+
+{% block title %}লগআউট{% endblock %}
+
+{% block content %}
+    <div class="alert alert-success text-center">
+        <h4>আপনি সফলভাবে লগআউট করেছেন।</h4>
+        <a href={% url "login" %} class="btn btn-primary mt-3">আবার লগইন করুন</a>
+    </div>
+{% endblock %}

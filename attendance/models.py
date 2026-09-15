@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Teacher(models.Model):
-    user=models.ForeignKey(User,on_delete=models.CASCADE,related_name='teacher')
+    user=models.OneToOneField(User,on_delete=models.CASCADE,related_name='teacher')
     name=models.CharField(max_length=100)
     email=models.EmailField()
     phone=models.CharField(max_length=20,blank=True,null=True)
@@ -30,7 +30,7 @@ class ClassRoom(models.Model):
 
 
 class Student(models.Model):
-    user=models.ForeignKey(User,on_delete=models.CASCADE,related_name='student')
+    user=models.OneToOneField(User,on_delete=models.CASCADE,related_name='student')
     roll_number=models.CharField(max_length=20)
     name=models.CharField(max_length=100)
     classroom=models.ForeignKey(ClassRoom,on_delete=models.CASCADE,related_name='students')

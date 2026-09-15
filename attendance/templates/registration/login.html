@@ -1,0 +1,39 @@
+
+{% extends 'attendance/base.html' %}
+
+{% block title %}লগইন{% endblock %}
+
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h3 class="card-title text-center mb-4">
+                        <i class="bi bi-box-arrow-in-right"></i> লগইন করুন
+                    </h3>
+
+                    {% if form.errors %}
+                        <div class="alert alert-danger">
+                            আপনার ইউজারনেম বা পাসওয়ার্ড ভুল হয়েছে। আবার চেষ্টা করুন।
+                        </div>
+                    {% endif %}
+
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="id_username" class="form-label">ইউজারনেম</label>
+                            <input type="text" name="username" id="id_username"
+                                   class="form-control" required autofocus>
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_password" class="form-label">পাসওয়ার্ড</label>
+                            <input type="password" name="password" id="id_password"
+                                   class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">লগইন</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

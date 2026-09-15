@@ -1,0 +1,50 @@
+{% extends 'attendance/base.html' %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+    <h1 class="mb-4">
+        <i class="bi bi-speedometer2"></i> Admin Dashboard
+    </h1>
+
+    <div class="row g-3">
+        <div class="col-md-3">
+            <div class="card text-white bg-primary">
+                <div class="card-body">
+                    <h5><i class="bi bi-people-fill"></i> Teachers</h5>
+                    <p class="mb-0 fs-3">{{ total_teachers|default:"0" }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-white bg-success">
+                <div class="card-body">
+                    <h5><i class="bi bi-mortarboard-fill"></i> Students</h5>
+                    <p class="mb-0 fs-3">{{ total_students|default:"0" }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-white bg-warning">
+                <div class="card-body">
+                    <h5><i class="bi bi-door-open-fill"></i> Class Rooms</h5>
+                    <p class="mb-0 fs-3">{{ total_classrooms|default:"0" }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-white bg-info">
+                <div class="card-body">
+                    <h5><i class="bi bi-clipboard-data-fill"></i> Attendances</h5>
+                    <p class="mb-0 fs-3">{{ total_attendances|default:"0" }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <a href="/admin/" class="btn btn-outline-primary">
+            <i class="bi bi-gear"></i> Django Admin
+        </a>
+    </div>
+{% endblock %}
